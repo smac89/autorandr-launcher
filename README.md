@@ -8,7 +8,7 @@ Automatically runs autorandr to restore graphical session properties
 - `#> make install`
 
 ## Running
-- `systemctl enable --user --now autorandr_launcher.service`
-- `journalctl --follow --identifier='autorandr-launcher-service'`
+- `$> systemctl enable --user --now autorandr_launcher.service`
+- `$> journalctl --follow --identifier='autorandr-launcher-service'`
 - Profit!
 
