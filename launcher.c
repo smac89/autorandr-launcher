@@ -169,7 +169,7 @@ int main(int argc, char **argv) {
         daemon(0, 0);
         if (VERBOSE) {
             // Setup System logging for daemon program
-            openlog("autorandr-service", LOG_PID|LOG_CONS, LOG_USER);
+            openlog("autorandr-launcher-service", LOG_PID|LOG_CONS, LOG_USER);
         }
         ar_log("Running as daemon");
     }
