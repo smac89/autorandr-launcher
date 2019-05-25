@@ -11,7 +11,7 @@ launcher: launcher.c
 	cc $< ${CFLAGS} -o $@ ${LDFLAGS}
 
 # Rules for launcher
-install_launcher:
+install_launcher: launcher
 	install -D --mode=755 launcher ${DESTDIR}${PREFIX}/bin/autorandr_launcher
 
 uninstall_launcher:
