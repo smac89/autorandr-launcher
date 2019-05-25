@@ -11,7 +11,7 @@ launcher: launcher.c
 	cc $< ${CFLAGS} -o $@ ${LDFLAGS}
 
 # Rules for launcher
-install_launcher: launcher
+install_launcher:
 	install -D --mode=755 launcher ${DESTDIR}${PREFIX}/bin/autorandr_launcher
 
 uninstall_launcher:
@@ -19,7 +19,7 @@ uninstall_launcher:
 
 install_service: install_launcher ${SYSTEMD_UNIT_DIR}
 	install -D --mode=644 launcher.service ${DESTDIR}/${SYSTEMD_UNIT_DIR}/autorandr_launcher.service
-	sed -i "s#<autorandr_launcher>#${DESTDIR}${PREFIX}/bin/autorandr_launcher#" ${DESTDIR}/${SYSTEMD_UNIT_DIR}/autorandr_launcher.service
+	sed -i "s:<autorandr_launcher>:${DESTDIR}${PREFIX}/bin/autorandr_launcher:" ${DESTDIR}/${SYSTEMD_UNIT_DIR}/autorandr_launcher.service
 
 uninstall_service: uninstall_launcher
 	$(RM) ${DESTDIR}/${SYSTEMD_UNIT_DIR}/autorandr_launcher.service
